@@ -5,8 +5,8 @@ const { verifyToken } = require("../JWT/Verify");
 
 //CREATE POST
 router.post("/", verifyToken, async (req, res) => {
+  let userfound = await User.findOne({ _id: req.userId });
   try {
-    let userfound = await User.findOne({ _id: req.userId });
     if (!userfound) return res.send({ status: false, message: "usenotFound" });
     const user = await Post.create({
       title: req.body.title,

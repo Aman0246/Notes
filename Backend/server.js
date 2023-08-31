@@ -1,5 +1,4 @@
 const express = require("express");
-const multer  = require('multer')
 const app = express();
 const dotenv = require("dotenv");
 const authRoute = require("./routes/auth");
